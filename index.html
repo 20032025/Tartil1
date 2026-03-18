@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>  محمد اللحيدان </title>
+    <link rel="stylesheet" href="style.css" />
+ <link rel="icon" href="icon.png" type="image/png"></head>
+<body>
+
+
+
+<div class="links-container">
+    
+    <a href="nabisaleh.html" class="link1" onclick="event.preventDefault()"> ســــــــورة الفــــاتحة    
+        <button class="play">▶</button>
+        <button class="pause">⏸</button>
+        <button class="download">⬇</button>  
+        <audio src="fatiha.mp3"></audio>
+      </a>
+   
+
+      
+
+      
+  
+    
+</div>
+  
+
+
+
+<script>
+    let currentAudio = null;
+    
+    // تشغيل
+    document.querySelectorAll(".play").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const audio = document.querySelectorAll("audio")[index];
+    
+        if (currentAudio && currentAudio !== audio) {
+          currentAudio.pause();
+        }
+    
+        audio.play();
+        currentAudio = audio;
+      });
+    });
+    
+    // إيقاف
+    document.querySelectorAll(".pause").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const audio = document.querySelectorAll("audio")[index];
+        audio.pause();
+      });
+    });
+    
+    // تحميل
+    document.querySelectorAll(".download").forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const audio = document.querySelectorAll("audio")[index];
+        const link = document.createElement("a");
+        link.href = audio.src;
+        link.download = "";
+        link.click();
+      });
+    });
+    </script>
+
+
+</body>
+</html>
